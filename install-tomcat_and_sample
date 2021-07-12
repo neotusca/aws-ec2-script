@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# 1. install jdk
+yum install java-1.8.0 -y
+
+# 2. install tomcat
+wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.68/bin/apache-tomcat-8.5.68.tar.gz
+tar xvfz apache-tomcat-8.5.68.tar.gz
+
+# 3. create user & group
+groupadd -g 9999  sysadmin
+useradd -u 9999  -g sysadmin   sysadmin  
+
+# 4. adjust directory & permission
+mv apache-tomcat-8.5.68       /home/sysadmin
+chown -R  sysadmin:sysadmin   /home/sysadmin/apache-tomcat-8.5.68
+
+# 5. install git for sample-code
+yum install git -y
+cd /home/sysadmin/apache-tomcat-8.5.68/webapps
+mv ROOT ROOT.tmp
+sudo -u sysadmin  git clone  https://github.com/neotusca/jsession-test.git  /home/sysadmin/apache-tomcat-8.5.68/webapps/ROOT
+
+# 6. execute tomcat
+sudo -u sysadmin  /home/sysadmin/apache-tomcat-8.5.68/bin/startup.sh
