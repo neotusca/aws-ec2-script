@@ -5,7 +5,7 @@ yum update -y
 timedatectl set-timezone  Asia/Seoul
 
 # 3. 표준시간대 설정
-sed -i 's/UTC/Asia\/Seoul/'  /etc/sysconfig/clock 
+sed -i 's/ZONE="UTC"/ZONE="Asia\/Seoul"/'  /etc/sysconfig/clock 
 ln -sf  /usr/share/zoneinfo/Asia/Seoul   /etc/localtime 
 
 # 4. 패키지설치
@@ -14,6 +14,7 @@ yum  install   java-1.8.0-openjdk-devel -y
 yum  install   gcc gcc-c++ -y
 
 # 5. 초기설정백업
+mkdir -p  /home/ec2-user/security/result
 cp /etc/passwd  /home/ec2-user/security/result/etc_passwd.txt
 ps -ef | grep -v ps | grep -v grep  >  /home/ec2-user/security/result/ps_list.txt
 
@@ -56,17 +57,11 @@ if [ ! -z "$result" ]
 fi  
 
 # 11. AWS cloudwatch agent설치
-yum install amazon-cloudwatch-agent
+yum install amazon-cloudwatch-agent  -y
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
-
+mkdir /usr/share/collectd
+touch /usr/share/collectd/types.db
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file://opt/aws/amazon-cloudwatch-agent/bin/config.json -s
-
-
-
- 
-
-
-
-
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
 
 
