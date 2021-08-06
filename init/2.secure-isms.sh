@@ -35,6 +35,11 @@ sed -i 's/#auth           required        pam_wheel.so use_uid/auth           re
 echo "### secured by mzc at "$NOW  >>  $FILE6
 
 
+# U-12
+FILE15=/etc/group
+sed -i '/screen:x:84:/d'   $FILE15
+
+
 # U-15
 FILE15=/etc/bashrc
 echo "### secured by mzc ###"  >> $FILE15
