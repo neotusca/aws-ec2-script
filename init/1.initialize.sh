@@ -1,9 +1,6 @@
 # 1. 기본패치
 yum update -y
 
-# 2. 시간동기화
-timedatectl set-timezone  Asia/Seoul
-
 # 3. 표준시간대 설정
 sed -i 's/ZONE="UTC"/ZONE="Asia\/Seoul"/'  /etc/sysconfig/clock 
 ln -sf  /usr/share/zoneinfo/Asia/Seoul   /etc/localtime 
@@ -58,7 +55,7 @@ fi
 
 # 11. AWS cloudwatch agent설치
 yum install amazon-cloudwatch-agent  -y
-/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+cp cloudwatch-agent-config.json  /opt/aws/amazon-cloudwatch-agent/bin/config.json
 mkdir /usr/share/collectd
 touch /usr/share/collectd/types.db
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file://opt/aws/amazon-cloudwatch-agent/bin/config.json -s
