@@ -89,11 +89,11 @@ FILE67_4=/etc/issue.net
 
 echo "*******************************************************************************************************"  >> $FILE67_3
 echo "*                                                                                                     *"  >> $FILE67_3
-echo "*  This server is the property of Hansol HomeDeco Industries and only allows authorized users access. *"  >> $FILE67_3
+echo "*  This server is the property of XXXXXX Industries and only allows authorized users access. *"  >> $FILE67_3
 echo "*  Users who delete/modify/distribute information by illegally accessing or misusing the server       *"  >> $FILE67_3
 echo "*  may be punished according to relevant regulations.                                                 *"  >> $FILE67_3
 echo "*                                                                                                     *"  >> $FILE67_3
-echo "*  본 서버는 한솔홈데코의 자산이며 인증된 사용자 에게만 접근을 허가 합니다.                           *"  >> $FILE67_3
+echo "*  본 서버는 XXXXXX의 자산이며 인증된 사용자 에게만 접근을 허가 합니다.                           *"  >> $FILE67_3
 echo "*  서버에 불법적으로 접근하거나 오용하여 정보를 삭제/변경/배포하는 사용자는                           *"  >> $FILE67_3
 echo "*  관련 규정에 따라 처벌을 받을 수 있습니다.                                                          *"  >> $FILE67_3
 echo "*                                                                                                     *"  >> $FILE67_3
