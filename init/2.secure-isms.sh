@@ -63,10 +63,23 @@ FILE24=/usr/bin/at
 stat $FILE24
 chmod -s $FILE24
 
+
+# U-44
+SVC44_1=rpcbind
+SVC44_2=postfix
+systemctl  status  $SVC44_1
+systemctl  stop    $SVC44_1
+systemctl  disable $SVC44_1
+systemctl  status  $SVC44_2
+systemctl  stop    $SVC44_2
+systemctl  disable $SVC44_2
+
+
 # U-64
 FILE64=/etc/at.deny
 stat $FILE64
 chmod 640 $FILE64
+
 
 # U-67
 FILE67_1=/etc/update-motd.d/30-banner
