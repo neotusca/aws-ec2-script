@@ -36,12 +36,12 @@ cp /etc/cloud/cloud.cfg.org  /etc/cloud/cloud.cfg
 sed -i 's/ssh_pwauth:   false/ssh_pwauth:   true/'   /etc/cloud/cloud.cfg
 
 # 8. sudo설정
-echo "##### added by init-1.sh #####"   >>  /etc/sudoers.d/90-cloud-init-users
+echo "##### added by mzcloud #####"   >>  /etc/sudoers.d/90-cloud-init-users
 echo "sysadmin ALL=(ALL) NOPASSWD:ALL"  >>  /etc/sudoers.d/90-cloud-init-users
 
 # 9. 시스템언어설정
 sed -i 's/en_US.UTF-8/ko_KR.utf8/'  /etc/sysconfig/i18n 
-echo "##### added by init-1.sh #####"   >>  /etc/bashrc
+echo "##### added by mzcloud #####"   >>  /etc/bashrc
 echo "LANG=ko_KR.utf8"                  >> /etc/bashrc
 
 # 10. AWS ssm agent설치확인

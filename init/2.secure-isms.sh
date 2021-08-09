@@ -31,7 +31,7 @@ chmod 4750  $FILE6
 FILE6=/etc/pam.d/su
 mv  $FILE6      $FILE6.org
 cp  $FILE6.org  $FILE6
-sed -i 's/#auth           required        pam_wheel.so use_uid/auth           required        pam_wheel.so use_uid/'  $FILE6
+sed -i 's/#auth		required	pam_wheel.so use_uid/auth		required	pam_wheel.so use_uid/'  $FILE6
 echo "### secured by mzc at "$NOW  >>  $FILE6
 
 

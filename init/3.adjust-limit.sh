@@ -6,7 +6,7 @@ NOW=`date '+%Y.%m.%d %H:%M:%S'`
 FILE1=/etc/security/limits.conf
 mv  $FILE1      $FILE1.org
 cp  $FILE1.org  $FILE1
-echo "### adjusted by mzc at "$NOW  >>  $FILE1
+echo "### adjusted by mzcloud at "$NOW  >>  $FILE1
 echo "@was             soft    nofile          8192"          >>  $FILE1
 echo "@was             hard    nofile          65535"         >>  $FILE1
 echo "@was             soft    nproc           8192"          >>  $FILE1
