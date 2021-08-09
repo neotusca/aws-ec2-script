@@ -22,6 +22,18 @@ sed -i 's/PASS_MIN_LEN\t5/PASS_MIN_LEN\t8/g'        /etc/login.defs
 sed -i 's/PASS_WARN_AGE\t7/PASS_WARN_AGE\t7/g'      /etc/login.defs
 echo "### secured by mzc at "$NOW  >>  $FILE2
 
+FILE2=/etc/shadow
+USERS="sysadmin wasuser etcuser"
+for USER in $USERS
+do
+    echo [$USER]
+    if [ ! -z `awk -F: '$5!=90  {print $1":"$5}' $FILE | grep $USER` ]
+    then
+        awk -F: '$5!=90  {print $1":"$5" --> "$1":"90}' $FILE | grep $USER 
+        awk -F: '$5!=90  {print $1":"$5}' $FILE | grep $USER | sed -i 's/99999/90/' $FILE
+    fi
+done
+
 
 # U-6
 FILE6=/usr/bin/su
