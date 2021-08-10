@@ -56,19 +56,19 @@ echo "### secured by mzc at "$NOW  >>  $FILE6
 
 
 # U-12
-FILE15=/etc/group
-sed -i '/dialout:x:18:/d'     $FILE15
-sed -i '/tape:x:33:/d'        $FILE15
-sed -i '/video:x:39:/d'       $FILE15
-sed -i '/audio:x:63:/d'       $FILE15
-sed -i '/utmp:x:22:/d'        $FILE15
-sed -i '/utempter:x:35:/d'    $FILE15
-sed -i '/slocate:x:21:/d'     $FILE15
-sed -i '/postdrop:x:90:/d'    $FILE15
-sed -i '/stapusr:x:156:/d'    $FILE15
-sed -i '/stapsys:x:157:/d'    $FILE15
-sed -i '/stapdev:x:158:/d'    $FILE15
-sed -i '/ftp:x:50:/d'         $FILE15
+#FILE15=/etc/group
+#sed -i '/dialout:x:18:/d'     $FILE15
+#sed -i '/tape:x:33:/d'        $FILE15
+#sed -i '/video:x:39:/d'       $FILE15
+#sed -i '/audio:x:63:/d'       $FILE15
+#sed -i '/utmp:x:22:/d'        $FILE15
+#sed -i '/utempter:x:35:/d'    $FILE15
+#sed -i '/slocate:x:21:/d'     $FILE15
+#sed -i '/postdrop:x:90:/d'    $FILE15
+#sed -i '/stapusr:x:156:/d'    $FILE15
+#sed -i '/stapsys:x:157:/d'    $FILE15
+#sed -i '/stapdev:x:158:/d'    $FILE15
+#sed -i '/ftp:x:50:/d'         $FILE15
 #sed -i '/ssh_keys:x:998:/d'   $FILE15
 
 
@@ -97,9 +97,9 @@ chmod -s $FILE24
 
 
 # U-34
-FILE34=/etc/passwd
-sed -i '/ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin/d'                                   $FILE34
-sed -i '/rngd:x:998:996:Random Number Generator Daemon:/var/lib/rngd:/sbin/nologin/d'     $FILE34
+#FILE34=/etc/passwd
+#sed -i '/ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin/d'                                   $FILE34
+#sed -i '/rngd:x:998:996:Random Number Generator Daemon:/var/lib/rngd:/sbin/nologin/d'     $FILE34
 
 
 # U-44
@@ -136,9 +136,6 @@ echo "*  서버에 불법적으로 접근하거나 오용하여 정보를 삭제
 echo "*  관련 규정에 따라 처벌을 받을 수 있습니다.                                                          *"  >> $FILE67_3
 echo "*                                                                                                     *"  >> $FILE67_3
 echo "*******************************************************************************************************"  >> $FILE67_3
-
-
-
 
 
 
