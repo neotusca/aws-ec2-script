@@ -7,7 +7,7 @@ ln -sf  /usr/share/zoneinfo/Asia/Seoul   /etc/localtime
 
 # 3. 패키지설치
 yum  update    aws-cli -y
-yum  install   java-1.8.0-openjdk-devel -y
+#yum  install   java-1.8.0-openjdk-devel -y
 yum  install   gcc gcc-c++ -y
 
 # 4. 초기설정백업
