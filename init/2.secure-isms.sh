@@ -36,11 +36,11 @@ done
 
 
 # U-3 
-FILE3=/etc/pam.d/sshd
-mv  $FILE3      $FILE3.org
-cp  $FILE3.org  $FILE3
-sed -i 's/^auth       required     pam_sepermit.so$/^auth       required     pam_sepermit.so\nauth        required      pam_tally2.so  deny=5 unlock_time=120 no_magic_root reset/'  $FILE3
-echo "### secured by mzc at "$NOW  >>  $FILE3
+#FILE3=/etc/pam.d/sshd
+#mv  $FILE3      $FILE3.org
+#cp  $FILE3.org  $FILE3
+#sed -i 's/^auth       required     pam_sepermit.so$/^auth       required     pam_sepermit.so\nauth        required      pam_tally2.so  deny=5 unlock_time=120 no_magic_root reset/'  $FILE3
+#echo "### secured by mzc at "$NOW  >>  $FILE3
 
 
 # U-6
@@ -69,7 +69,7 @@ sed -i '/stapusr:x:156:/d'    $FILE15
 sed -i '/stapsys:x:157:/d'    $FILE15
 sed -i '/stapdev:x:158:/d'    $FILE15
 sed -i '/ftp:x:50:/d'         $FILE15
-sed -i '/ssh_keys:x:998:/d'   $FILE15
+#sed -i '/ssh_keys:x:998:/d'   $FILE15
 
 
 # U-15
