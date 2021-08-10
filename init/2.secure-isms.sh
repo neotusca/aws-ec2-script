@@ -27,12 +27,20 @@ USERS="sysadmin wasuser etcuser"
 for USER in $USERS
 do
     echo [$USER]
-    if [ ! -z `awk -F: '$5!=90  {print $1":"$5}' $FILE | grep $USER` ]
+    if [ ! -z `awk -F: '$5!=90  {print $1":"$5}' $FILE2 | grep $USER` ]
     then
-        awk -F: '$5!=90  {print $1":"$5" --> "$1":"90}' $FILE | grep $USER 
-        awk -F: '$5!=90  {print $1":"$5}' $FILE | grep $USER | sed -i 's/99999/90/' $FILE
+        awk -F: '$5!=90  {print $1":"$5" --> "$1":"90}' $FILE2 | grep $USER 
+        awk -F: '$5!=90  {print $1":"$5}' $FILE2 | grep $USER | sed -i 's/99999/90/' $FILE2
     fi
 done
+
+
+# U-3 
+FILE3=/etc/pam.d/sshd
+mv  $FILE3      $FILE3.org
+cp  $FILE3.org  $FILE3
+sed -i 's/^auth       required     pam_sepermit.so$/^auth       required     pam_sepermit.so\nauth        required      pam_tally2.so  deny=5 unlock_time=120 no_magic_root reset/'  $FILE3
+echo "### secured by mzc at "$NOW  >>  $FILE3
 
 
 # U-6

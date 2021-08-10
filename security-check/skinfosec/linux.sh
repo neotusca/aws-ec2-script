@@ -598,7 +598,7 @@ for gid in `awk -F: '$4==null {print $3}' /etc/group`
 do
 	if [ `grep -c $gid /etc/passwd` -eq 0 ]
 	then
-		grep $gid /etc/group                                                                       > nullgid.txt
+		grep $gid /etc/group                                                                       >> nullgid.txt
 	fi		
 done
 
