@@ -27,11 +27,7 @@ USERS="sysadmin wasuser etcuser"
 for USER in $USERS
 do
     echo [$USER]
-    if [ ! -z `awk -F: '$5!=90  {print $1":"$5}' $FILE2 | grep $USER` ]
-    then
-        awk -F: '$5!=90  {print $1":"$5" --> "$1":"90}' $FILE2 | grep $USER 
-        awk -F: '$5!=90  {print $1":"$5}' $FILE2 | grep $USER | sed -i 's/99999/90/' $FILE2
-    fi
+    chage -M 90 $USER
 done
 
 
