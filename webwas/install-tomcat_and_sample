@@ -4,20 +4,20 @@
 yum install java-1.8.0 -y
 
 # 2. install tomcat
-wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.69/bin/apache-tomcat-8.5.69.tar.gz
+wget https://mirror.navercorp.com/apache/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
 
 # 3. create user & group
 groupadd -g 9999  sysadmin
 useradd -u 9999  -g sysadmin   sysadmin  
 
 # 4. adjust directory & permission
-sudo -u sysadmin  tar xvfz  apache-tomcat-8.5.69.tar.gz  -C ~sysadmin/
+sudo -u sysadmin  tar xvfz  apache-tomcat-9.0.64.tar.gz  -C ~sysadmin/
 
 # 5. install git for sample-code
 yum install git -y
-cd ~sysadmin/apache-tomcat-8.5.69/webapps
+cd ~sysadmin/apache-tomcat-9.0.64/webapps
 sudo -u sysadmin  mv ROOT ROOT.tmp
-sudo -u sysadmin  git clone  https://github.com/neotusca/jsession-test.git  ~sysadmin/apache-tomcat-8.5.69/webapps/ROOT
+sudo -u sysadmin  git clone  https://github.com/neotusca/jsession-test.git  ~sysadmin/apache-tomcat-9.0.64/webapps/ROOT
 
 # 6. execute tomcat
-sudo -u sysadmin  ~sysadmin/apache-tomcat-8.5.69/bin/startup.sh
+sudo -u sysadmin  ~sysadmin/apache-tomcat-9.0.64/bin/startup.sh
