@@ -4,16 +4,16 @@
 yum install java-1.8.0 -y
 
 # 2. install tomcat
-wget https://mirror.navercorp.com/apache/tomcat/tomcat-8/v8.5.68/bin/apache-tomcat-8.5.68.tar.gz
-tar xvfz apache-tomcat-8.5.68.tar.gz
+wget https://mirror.navercorp.com/apache/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+tar xvfz apache-tomcat-9.0.64.tar.gz
 
 # 3. create user & group
 groupadd -g 9999  sysadmin
 useradd -u 9999  -g sysadmin   sysadmin  
 
 # 4. adjust directory & permission
-mv apache-tomcat-8.5.68       /home/sysadmin
-chown -R  sysadmin:sysadmin   /home/sysadmin/apache-tomcat-8.5.68
+mv apache-tomcat-9.0.64       /home/sysadmin
+chown -R  sysadmin:sysadmin   /home/sysadmin/apache-tomcat-9.0.64
 
 # 5. execute tomcat
-sudo -u sysadmin  /home/sysadmin/apache-tomcat-8.5.68/bin/startup.sh
+sudo -u sysadmin  /home/sysadmin/apache-tomcat-9.0.64/bin/startup.sh
